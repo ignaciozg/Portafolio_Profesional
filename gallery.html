@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería - Portafolio Profesional</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Estilos específicos para la galería */
+        .gallery-img {
+            height: 250px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+            filter: brightness(0.7);
+        }
+
+        /* Overlay con el icono de lupa al pasar el mouse */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none; /* Para que el click pase a la imagen */
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fa-solid fa-arrow-left me-2"></i> Volver al Portafolio
+            </a>
+            <div class="navbar-nav ms-auto">
+                <span class="navbar-text text-white">
+                    <i class="fa-solid fa-images"></i> Galería Visual
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Mis Capturas y Diseños</h2>
+            <p class="text-muted">Una colección visual de mis interfaces, diagramas y entorno de trabajo.</p>
+            
+            <div class="btn-group mt-3" role="group" aria-label="Filtros">
+                <button type="button" class="btn btn-outline-dark active" onclick="filterGallery('all', this)">Todo</button>
+                <button type="button" class="btn btn-outline-dark" onclick="filterGallery('dev', this)">Videos</button>
+                <button type="button" class="btn btn-outline-dark" onclick="filterGallery('personal', this)">Sistemas de Redes y Telecoms</button>
+            </div>
+        </div>
+
+        <div class="row g-4" id="gallery-grid">
+            
+            <div class="col-md-4 col-lg-3 filter-item personal">
+                <div class="gallery-item shadow-sm" onclick="openModal(this)">
+                    <img src="./src/1.jpg" 
+                         alt="Código Fuente Java" 
+                         class="img-fluid w-100 gallery-img"
+                         data-caption="Trabajo en Site">
+                    <div class="overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+           <div class="col-md-4 col-lg-3 filter-item personal">
+                <div class="gallery-item shadow-sm" onclick="openModal(this)">
+                    <img src="./src/2.jpg" 
+                         alt="Dashboard de Datos" 
+                         class="img-fluid w-100 gallery-img"
+                         data-caption="Trabajo en Site">
+                    <div class="overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3 filter-item personal">
+                <div class="gallery-item shadow-sm" onclick="openModal(this)">
+                    <img src="./src/3.jpg" 
+                         alt="Carne Asada en Familia" 
+                         class="img-fluid w-100 gallery-img"
+                         data-caption="Trabajo en postes de Fibra Optica">
+                    <div class="overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3 filter-item personal">
+                <div class="gallery-item shadow-sm" onclick="openModal(this)">
+                    <img src="./src/4.jpg" 
+                         alt="Videowall C4 Mexicali" 
+                         class="img-fluid w-100 gallery-img"
+                         data-caption="Videowall C4 Mexicali">
+                    <div class="overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3 filter-item personal">
+                <div class="gallery-item shadow-sm" onclick="openModal(this)">
+                    <img src="./src/5.jpg" 
+                         alt="Bebida Tradicional" 
+                         class="img-fluid w-100 gallery-img"
+                         data-caption="Trabajo en postes de CCTV">
+                    <div class="overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3 filter-item personal">
+                <div class="gallery-item shadow-sm" onclick="openModal(this)">
+                    <img src="./src/6.jpg" 
+                         alt="Bebida Tradicional" 
+                         class="img-fluid w-100 gallery-img"
+                         data-caption="Peinado en rack de Voz y Datos">
+                    <div class="overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3 filter-item personal">
+                <div class="gallery-item shadow-sm" onclick="openModal(this)">
+                    <img src="./src/7.jpg" 
+                         alt="Bebida Tradicional" 
+                         class="img-fluid w-100 gallery-img"
+                         data-caption="Trabajo en equipo en torre de Telecoms">
+                    <div class="overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3 filter-item personal">
+                <div class="gallery-item shadow-sm" onclick="openModal(this)">
+                    <img src="./src/8.jpg" 
+                         alt="Bebida Tradicional" 
+                         class="img-fluid w-100 gallery-img"
+                         data-caption="Trabajo torre de Telecoms">
+                    <div class="overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3 filter-item personal">
+                <div class="gallery-item shadow-sm" onclick="openModal(this)">
+                    <img src="./src/9.jpeg" 
+                         alt="Bebida Tradicional" 
+                         class="img-fluid w-100 gallery-img"
+                         data-caption="Administracion de  puertos en sistema Unifi de Ubiquiti">
+                    <div class="overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3 filter-item personal">
+                <div class="gallery-item shadow-sm" onclick="openModal(this)">
+                    <img src="./src/10.jpeg" 
+                         alt="Bebida Tradicional" 
+                         class="img-fluid w-100 gallery-img"
+                         data-caption="Peinado de gabinete de Voz y Datos">
+                    <div class="overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3 filter-item personal">
+                <div class="gallery-item shadow-sm" onclick="openModal(this)">
+                    <img src="./src/11.jpeg" 
+                         alt="" 
+                         class="img-fluid w-100 gallery-img"
+                         data-caption="Peinado de rack de Voz y Datos">
+                    <div class="overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+<div class="col-md-4 col-lg-3 filter-item personal">
+                <div class="gallery-item shadow-sm" onclick="openModal(this)">
+                    <img src="./src/12.jpeg" 
+                         alt="" 
+                         class="img-fluid w-100 gallery-img"
+                         data-caption="Peinado de rack de CCTV">
+                    <div class="overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3 filter-item personal">
+                <div class="gallery-item shadow-sm" onclick="openModal(this)">
+                    <img src="./src/13.jpeg" 
+                         alt="" 
+                         class="img-fluid w-100 gallery-img"
+                         data-caption="Peinado de gabinete de Control de Acceso">
+                    <div class="overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3 filter-item personal">
+                <div class="gallery-item shadow-sm" onclick="openModal(this)">
+                    <img src="./src/14.jpeg" 
+                         alt="" 
+                         class="img-fluid w-100 gallery-img"
+                         data-caption="Peinado de rack de Control de Acceso">
+                    <div class="overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3 filter-item personal">
+                <div class="gallery-item shadow-sm" onclick="openModal(this)">
+                    <img src="./src/15.jpeg" 
+                         alt="" 
+                         class="img-fluid w-100 gallery-img"
+                         data-caption="Peinado de gabinete de Control de Acceso">
+                    <div class="overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3 filter-item personal">
+                <div class="gallery-item shadow-sm" onclick="openModal(this)">
+                    <img src="./src/16.jpeg" 
+                         alt="" 
+                         class="img-fluid w-100 gallery-img"
+                         data-caption="Trabajo en torres de Telecoms">
+                    <div class="overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3 filter-item dev">
+                <div class="gallery-item shadow-sm" onclick="openModal(this)" class="centrarvideo">
+                    <video width="640" height="360" controls>
+                    <source src="./src/Work hard ☺️.mp4" type="video/mp4">
+                    </video>
+                    <h5>Trabajo en equipo 🤟💪👷‍♂️</h5>
+                    <div class="overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3 filter-item dev">
+                <div class="gallery-item shadow-sm" onclick="openModal(this)" class="centrarvideo">
+                    <video width="640" height="360" controls>
+                    <source src="./src/17.mp4" type="video/mp4">
+                    </video>
+                    <h5>Instalacion de arco carretero</h5>
+                    <div class="overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="col-md-4 col-lg-3 filter-item dev">
+                <div class="gallery-item shadow-sm" onclick="openModal(this)" class="centrarvideo">
+                    <video width="640" height="360" controls>
+                    <source src="./src/18.mp4" type="video/mp4">
+                    </video>
+                    <div class="overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div> -->
+            
+            <div class="col-md-4 col-lg-3 filter-item personal">
+                <div class="gallery-item shadow-sm" onclick="openModal(this)">
+                    <img src="./src/Setup Gaming.jpg" 
+                         alt="Setup Gaming" 
+                         class="img-fluid w-100 gallery-img"
+                         data-caption="Mi setup gaming 🕹️🎮">
+                    <div class="overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark border-0">
+                <div class="modal-body p-0 position-relative">
+                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3 z-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <img src="" id="modalImage" class="img-fluid w-100 rounded" alt="Vista previa">
+                    <div class="p-3 text-white text-center">
+                        <h5 id="modalCaption"></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Función para filtrar imágenes
+        function filterGallery(category, btn) {
+            // Actualizar botones activos
+            document.querySelectorAll('.btn-group .btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const items = document.querySelectorAll('.filter-item');
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                    // Animación simple de entrada
+                    item.animate([
+                        { opacity: 0, transform: 'scale(0.9)' },
+                        { opacity: 1, transform: 'scale(1)' }
+                    ], {
+                        duration: 300,
+                        easing: 'ease-out'
+                    });
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Función para abrir el Modal
+        const myModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        const modalImg = document.getElementById('modalImage');
+        const modalCaption = document.getElementById('modalCaption');
+
+        function openModal(element) {
+            const img = element.querySelector('img');
+            modalImg.src = img.src.replace('w=600', 'w=1200'); // Cargar versión más grande si es posible
+            modalCaption.textContent = img.getAttribute('data-caption');
+            myModal.show();
+        }
+    </script>
+</body>
+</html>
