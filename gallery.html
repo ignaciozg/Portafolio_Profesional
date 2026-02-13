@@ -8,51 +8,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 
-    <style>
-        /* Estilos específicos para la galería */
-        .gallery-img {
-            height: 250px;
-            object-fit: cover;
-            cursor: pointer;
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
-        
-        .gallery-item {
-            overflow: hidden;
-            border-radius: 8px;
-            position: relative;
-        }
-
-        .gallery-item:hover .gallery-img {
-            transform: scale(1.1);
-            filter: brightness(0.7);
-        }
-
-        /* Overlay con el icono de lupa al pasar el mouse */
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none; /* Para que el click pase a la imagen */
-        }
-
-        .gallery-item:hover .overlay {
-            opacity: 1;
-        }
-    </style>
 </head>
-<body class="bg-light">
-
+<section id="body">
+<body class="bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <img src="./src/zgdevopslogo.png" alt="Logo" style="width: 100px; height: auto; margin-right: 10px;">
+            <a class="navbar-brand fw-bold" href="#">&lt;ZG DevOps /&gt;</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="./index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#sobre-mi">Sobre Mí</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#proyectos">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">
+            <a class="navbar-brand card-subtitle" href="index.html">
                 <i class="fa-solid fa-arrow-left me-2"></i> Volver al Portafolio
             </a>
             <div class="navbar-nav ms-auto">
@@ -66,12 +45,12 @@
     <div class="container py-5">
         <div class="text-center mb-5">
             <h2 class="fw-bold">Mis Capturas y Diseños</h2>
-            <p class="text-muted">Una colección visual de mis interfaces, diagramas y entorno de trabajo.</p>
+            <h3 class="text-white-50">Una colección visual de mis interfaces, diagramas y entorno de trabajo.</h3>
             
-            <div class="btn-group mt-3" role="group" aria-label="Filtros">
-                <button type="button" class="btn btn-outline-dark active" onclick="filterGallery('all', this)">Todo</button>
-                <button type="button" class="btn btn-outline-dark" onclick="filterGallery('dev', this)">Videos</button>
-                <button type="button" class="btn btn-outline-dark" onclick="filterGallery('personal', this)">Sistemas de Redes y Telecoms</button>
+            <div class="btn-group mt-3" role="group" aria-label="Filtros" >
+                <button type="button" class="btn btn-outline-primary avtive" onclick="filterGallery('all', this)">Todo</button>
+                <button type="button" class="btn btn-outline-primary avtive" onclick="filterGallery('dev', this)">Videos</button>
+                <button type="button" class="btn btn-outline-primary avtive" onclick="filterGallery('personal', this)">Sistemas de Redes y Telecoms</button>
             </div>
         </div>
 
@@ -333,6 +312,20 @@
         </div>
     </div>
 
+       <footer id="contacto" class="bg-dark text-white py-4 text-center">
+        <div class="container">
+            <h4 class="mb-3">¿Listo para colaborar?</h4>
+            <p class="mb-4">Estoy disponible para nuevos desafíos en desarrollo backend y full stack.</p>
+            <div class="d-flex justify-content-center gap-3 mb-3">
+                <a href="https://linkedin.com/in/ignaciozg" class="text-white fs-4"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/ignaciozg" class="text-white fs-4"><i class="fa-brands fa-github"></i></a>
+                <a href="mailto:ignacio.zgxd27@gmail.com" class="text-white fs-4"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <small>&copy; 2026 ZG DevOps. Todos los derechos reservados.</small>
+        </div>
+    </footer>
+
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
