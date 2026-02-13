@@ -9,19 +9,36 @@ body {
 .hero-section {
     /* Imagen de fondo técnica (código/servidores) con superposición oscura */
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1920');
+        url('src/bg1.avif');
     background-size: cover;
     background-position: center;
     height: 100vh; /* Ocupa toda la altura de la pantalla */
 }
 
+
+#proyectos {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+        url('src/devopsbg.png');
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    color: white;
+}
+
+
+
 /* Efecto Hover para las tarjetas de proyectos */
 .hover-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: white;
+    transition: transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.1) !important; /* Transparencia */
+    backdrop-filter: blur(10px); /* Desenfoque */
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 
 .hover-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
 }
 
@@ -49,4 +66,81 @@ video {
     max-width: 100%; /* Hace el video responsive */
     height: auto;
 }
+
+#sobre-mi {
+    color: white;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(src/devopsbg.png);
+    background-position: center;
+    background-size: auto;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+#sobre-mi h3, #sobre-mi h4, #sobre-mi h5 {
+    color: #0c70db; /* Un azul específico */
+}
+
+
+/* Skills */
+.d-flex.flex-wrap.gap-2.mt-2 {
+    display: flex !important;
+    flex-direction: column !important;
+    max-width: 500px; /* Opcional: para que no se estiren demasiado */
+}
+
+.badge.bg-secondary {
+    padding: 12px 15px !important;
+    text-align: left !important;
+    border-radius: 8px !important;
+    font-size: 0.95rem !important;
+    border-left: 4px solid #0d6efd; /* Un detalle de color (Primary) al borde */
+    background-color: #575757 !important; /* Un gris muy ligero */
+    color: #ffffff !important;
+}
+
+
+
+        /* Estilos específicos para la galería */
+        .gallery-img {
+            height: 250px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+            filter: brightness(0.7);
+        }
+
+        /* Overlay con el icono de lupa al pasar el mouse */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none; /* Para que el click pase a la imagen */
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+#body{
+    color: white;
+    background: #000;
+}
+
 
